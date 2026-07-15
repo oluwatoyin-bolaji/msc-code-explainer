@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Code Explainer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="mb-4">AI Code Explainer</h1>
+            <p class="lead">Paste a piece of Java code below and get a line‑by‑line explanation.</p>
+
+            <form action="#" th:action="@{/explain}" th:object="${codeInput}" method="post">
+                <div class="mb-3">
+                    <textarea class="form-control" rows="12"
+                              placeholder="Paste your Java code here..."
+                              th:field="*{code}"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Explain Code</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
