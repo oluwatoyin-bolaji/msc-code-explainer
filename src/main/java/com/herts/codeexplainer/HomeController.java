@@ -9,19 +9,41 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class HomeController {
 
-    // Shows the form with an empty CodeInput object for binding
+    private final OpenAiService openAiService;
+
+    // Spring automatically injects the OpenAiService bean
+    public HomeController(OpenAiService openAiService) {
+        this.openAiService = openAiService;
+    }
+
     @GetMapping("/")
     public String home(Model model) {
         model.addAttribute("codeInput", new CodeInput());
         return "index";
     }
 
-    // Receives the submitted code and shows the explanation page
     @PostMapping("/explain")
     public String explain(@ModelAttribute CodeInput codeInput, Model model) {
-        // For now, just pass the submitted code to the result page
-        model.addAttribute("submittedCode", codeInput.getCode());
-        model.addAttribute("explanation", "This is a placeholder explanation. OpenAI integration coming soon.");
+        // Get the submitted code
+        String code = codeInput.getCode();
+
+        // Call the service (dummy mode gives a safe response; real API when credits are added)
+        String explanation = openAiService.explain(code);
+
+        // Add both to the model so the view can display them
+        model.addAttribute("submittedCode", code);
+        model.addAttribute("explanation", explanation);
+
         return "explanation";
+    }
+
+    @GetMapping("/pretest")
+    public String pretest() {
+        return "pretest";
+    }
+
+    @GetMapping("/posttest")
+    public String posttest() {
+        return "posttest";
     }
 }

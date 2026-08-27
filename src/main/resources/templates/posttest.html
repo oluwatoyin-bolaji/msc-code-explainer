@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Post-Test - Code Comprehension</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">AI Code Explainer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/pretest">Pre-Test</a></li>
+                <li class="nav-item"><a class="nav-link" href="/posttest">Post-Test</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="mb-3">Post-Test: Code Comprehension</h1>
+            <p class="lead">Read the Java code below and answer the questions. <strong>Do not use any external help or the AI tool.</strong></p>
+
+            <div class="card mb-4">
+                <div class="card-header bg-dark text-white">
+                    Java Code Snippet
+                </div>
+                <div class="card-body">
+                    <pre class="bg-dark text-white p-3 rounded"><code>class Vehicle {
+    int speed;
+
+    Vehicle(int speed) {
+        this.speed = speed;
+    }
+
+    void describe() {
+        System.out.println("This vehicle travels at " + speed + " km/h");
+    }
+}
+
+class Car extends Vehicle {
+    Car(int speed) {
+        super(speed);
+    }
+
+    @Override
+    void describe() {
+        System.out.println("This car drives at " + speed + " km/h");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Vehicle v = new Car(120);
+        v.describe();
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <form>
+                <div class="mb-3">
+                    <p><strong>1. What is printed when the program runs?</strong></p>
+                    <select class="form-select">
+                        <option value="">-- Select --</option>
+                        <option>This vehicle travels at 120 km/h</option>
+                        <option>This car drives at 120 km/h</option>
+                        <option>120</option>
+                        <option>Error</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <p><strong>2. What is the relationship between <code>Car</code> and <code>Vehicle</code>?</strong></p>
+                    <select class="form-select">
+                        <option value="">-- Select --</option>
+                        <option>Car is the superclass of Vehicle</option>
+                        <option>Car inherits from Vehicle</option>
+                        <option>Vehicle inherits from Car</option>
+                        <option>Car and Vehicle are unrelated</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <p><strong>3. What does <code>super(speed)</code> do?</strong></p>
+                    <select class="form-select">
+                        <option value="">-- Select --</option>
+                        <option>Calls the Vehicle constructor</option>
+                        <option>Creates a new Vehicle object</option>
+                        <option>Increases the speed variable</option>
+                        <option>Overrides the describe method</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <p><strong>4. Why does <code>v.describe()</code> call the Car version of <code>describe</code>?</strong></p>
+                    <select class="form-select">
+                        <option value="">-- Select --</option>
+                        <option>v is declared as a Car</option>
+                        <option>The JVM checks the actual object type at runtime</option>
+                        <option>Car methods are always called first</option>
+                        <option>The describe method is static</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <p><strong>5. If we removed the <code>describe()</code> method from Car, what would <code>v.describe()</code> print?</strong></p>
+                    <select class="form-select">
+                        <option value="">-- Select --</option>
+                        <option>This car drives at 120 km/h</option>
+                        <option>This vehicle travels at 120 km/h</option>
+                        <option>Nothing</option>
+                        <option>Error</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Answers</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

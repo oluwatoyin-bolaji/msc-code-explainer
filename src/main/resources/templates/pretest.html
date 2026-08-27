@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Pre-Test - Code Comprehension</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="/">AI Code Explainer</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="/pretest">Pre-Test</a></li>
+                <li class="nav-item"><a class="nav-link" href="/posttest">Post-Test</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="mb-3">Pre-Test: Code Comprehension</h1>
+            <p class="lead">Read the Java code below and answer the questions. <strong>Do not use any external help or the AI tool.</strong></p>
+
+            <div class="card mb-4">
+                <div class="card-header bg-dark text-white">
+                    Java Code Snippet
+                </div>
+                <div class="card-body">
+                    <pre class="bg-dark text-white p-3 rounded"><code>class Animal {
+    String name;
+
+    Animal(String name) {
+        this.name = name;
+    }
+
+    void makeSound() {
+        System.out.println("Some sound");
+    }
+}
+
+class Dog extends Animal {
+    Dog(String name) {
+        super(name);
+    }
+
+    @Override
+    void makeSound() {
+        System.out.println("Woof");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Animal a = new Dog("Rex");
+        a.makeSound();
+    }
+}</code></pre>
+                </div>
+            </div>
+
+            <form>
+                <div class="mb-3">
+                    <p><strong>1. What is printed when the program runs?</strong></p>
+                    <select class="form-select">
+                        <option value="">-- Select --</option>
+                        <option>Some sound</option>
+                        <option>Woof</option>
+                        <option>Rex</option>
+                        <option>Error</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <p><strong>2. What does <code>super(name)</code> do in the Dog constructor?</strong></p>
+                    <select class="form-select">
+                        <option value="">-- Select --</option>
+                        <option>Calls the Animal constructor with the name argument</option>
+                        <option>Creates a new Animal object</option>
+                        <option>Returns the name of the Dog</option>
+                        <option>Overrides the makeSound method</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <p><strong>3. The variable <code>a</code> is of type Animal but holds a Dog object. What is this called?</strong></p>
+                    <select class="form-select">
+                        <option value="">-- Select --</option>
+                        <option>Encapsulation</option>
+                        <option>Polymorphism</option>
+                        <option>Abstraction</option>
+                        <option>Method overloading</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <p><strong>4. What does <code>@Override</code> indicate?</strong></p>
+                    <select class="form-select">
+                        <option value="">-- Select --</option>
+                        <option>A new method is being created</option>
+                        <option>The method is private</option>
+                        <option>The method replaces the parent class method</option>
+                        <option>The class cannot be extended</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <p><strong>5. If we removed the <code>makeSound()</code> method from Dog, what would <code>a.makeSound()</code> print?</strong></p>
+                    <select class="form-select">
+                        <option value="">-- Select --</option>
+                        <option>Woof</option>
+                        <option>Some sound</option>
+                        <option>Nothing</option>
+                        <option>Error</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit Answers</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
